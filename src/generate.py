@@ -21,6 +21,22 @@ README_FILE = os.path.join(BASE_DIR, "README.md")
 os.makedirs(CASES_MD_DIR, exist_ok=True)
 os.makedirs(CASES_AUDIO_DIR, exist_ok=True)
 
+def load_env():
+    """Tự động tải các biến môi trường từ file .env nếu có (không cần cài thêm python-dotenv)."""
+    env_path = os.path.join(BASE_DIR, ".env")
+    if os.path.exists(env_path):
+        print("Đang tải cấu hình từ file .env cục bộ...")
+        with open(env_path, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#"):
+                    if "=" in line:
+                        key, value = line.split("=", 1)
+                        os.environ[key.strip()] = value.strip().strip('"').strip("'")
+
+# Tải cấu hình từ .env nếu chạy ở máy cục bộ
+load_env()
+
 # Lấy các biến môi trường
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 SENDER_EMAIL = os.environ.get("SENDER_EMAIL")
