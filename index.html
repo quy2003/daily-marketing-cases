@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Marketing Cases & Podcast | Premium Vault</title>
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* CSS Variables - Ultra Premium Cyberpunk Dark Palette */
+        :root {
+            --bg-base: #030408;
+            --bg-sidebar: rgba(6, 7, 13, 0.85);
+            --bg-surface: rgba(13, 14, 24, 0.65);
+            --bg-card: rgba(20, 22, 39, 0.4);
+            
+            --border-color: rgba(255, 255, 255, 0.05);
+            --border-hover: rgba(255, 255, 255, 0.12);
+            --border-glow: rgba(139, 92, 246, 0.3);
+            
+            --primary: #8b5cf6;
+            --primary-rgb: 139, 92, 246;
+            --primary-gradient: linear-gradient(135deg, #a78bfa 0%, #6366f1 100%);
+            --secondary: #6366f1;
+            --accent: #10b981;
+            --accent-glow: rgba(16, 185, 129, 0.15);
+            
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --text-dark: #64748b;
+            
+            --font-display: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Base Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            background-image: 
+                radial-gradient(circle at 5% 5%, rgba(139, 92, 246, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 95% 95%, rgba(99, 102, 241, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(3, 4, 8, 1) 0%, transparent 100%);
+            background-attachment: fixed;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.01);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Layout */
+        .app-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        /* Password Gate Overlay (Premium Portal) */
+        #password-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #030408;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: var(--transition-smooth);
+            background-image: 
+                radial-gradient(circle at center, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+        }
+
+        .gate-card {
+            background: var(--bg-sidebar);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color);
+            padding: 50px 40px;
+            border-radius: 28px;
+            width: 90%;
+            max-width: 440px;
+            text-align: center;
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.8),
+                0 0 50px rgba(139, 92, 246, 0.03);
+            animation: floatUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes floatUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .gate-icon {
+            font-size: 52px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.4));
+            animation: pulseIcon 3s infinite ease-in-out;
+        }
+
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.3)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.6)); }
+        }
+
+        .gate-card h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .gate-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .password-input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .password-input-group input {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            color: white;
+            font-size: 18px;
+            outline: none;
+            transition: var(--transition-smooth);
+            text-align: center;
+            letter-spacing: 4px;
+        }
+
+        .password-input-group input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.15);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .gate-button {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 14px;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.25);
+            transition: var(--transition-smooth);
+            font-family: var(--font-display);
+            letter-spacing: 0.5px;
+        }
+
+        .gate-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(139, 92, 246, 0.4);
+        }
+
+        .error-message {
+            color: #f87171;
+            font-size: 14px;
+            margin-top: 15px;
+            display: none;
+            animation: shake 0.4s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            75% { transform: translateX(6px); }
+        }
+
+        /* Sidebar - Design System */
+        .sidebar {
+            width: 400px;
+            border-right: 1px solid var(--border-color);
+            background: var(--bg-sidebar);
+            backdrop-filter: blur(30px);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .sidebar-header {
+            padding: 35px 30px 25px 30px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .app-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .app-logo i {
+            font-size: 30px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.3));
+        }
+
+        .app-logo h1 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Profile & Progress Tracker (Gamified Stats Grid) */
+        .profile-section {
+            background: rgba(255, 255, 255, 0.015);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01);
+        }
+
+        .profile-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .level-badge {
+            font-size: 11px;
+            font-weight: 800;
+            background: var(--primary-glow);
+            color: #a78bfa;
+            border: 1px solid var(--border-glow);
+            padding: 4px 10px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: var(--font-display);
+        }
+
+        .streak-count {
+            font-size: 14px;
+            color: #fbbf24;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.2);
+        }
+
+        .xp-skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            font-size: 11px;
+        }
+
+        .xp-item {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+            transition: var(--transition-smooth);
+        }
+
+        .xp-item:hover {
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .xp-label {
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+
+        .xp-bar-container {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .xp-bar-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            width: 0%;
+            border-radius: 10px;
+            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Search & Filter Controls */
+        .search-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 14px 15px 14px 46px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.05);
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+            white-space: nowrap;
+        }
+
+        .filter-tag {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            cursor: pointer;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+        }
+
+        .filter-tag.active, .filter-tag:hover {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 10px rgba(139, 92, 246, 0.15);
+        }
+
+        /* Scrollable Cases List */
+        .cases-list-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 25px 30px;
+        }
+
+        .case-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 20px;
+            margin-bottom: 18px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .case-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: transparent;
+            transition: var(--transition-smooth);
+        }
+
+        .case-card.active {
+            background: rgba(139, 92, 246, 0.04);
+            border-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.05);
+        }
+
+        .case-card.active::before {
+            background: var(--primary);
+        }
+
+        .case-card:hover:not(.active) {
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.01);
+            transform: translateY(-2px);
+        }
+
+        .case-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .case-tag {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 8px;
+            letter-spacing: 0.5px;
+            font-family: var(--font-display);
+        }
+
+        .case-tag.past {
+            background: rgba(59, 130, 246, 0.08);
+            color: #60a5fa;
+            border: 1px solid rgba(59, 130, 246, 0.15);
+        }
+
+        .case-tag.present {
+            background: rgba(239, 68, 68, 0.08);
+            color: #f87171;
+            border: 1px solid rgba(239, 68, 68, 0.15);
+        }
+
+        .case-card-date {
+            font-size: 11px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .case-card-title {
+            font-family: var(--font-display);
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .case-card-brand {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* Reader Content Panel */
+        .content-panel {
+            flex-grow: 1;
+            height: 100%;
+            overflow-y: auto;
+            background: rgba(3, 4, 8, 0.3);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Empty State */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 40px;
+        }
+
+        .empty-state i {
+            font-size: 72px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.2));
+            animation: floatIcon 3s infinite ease-in-out;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .empty-state h3 {
+            font-family: var(--font-display);
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: white;
+            font-weight: 800;
+        }
+
+        .empty-state p {
+            max-width: 460px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Case Reader Header */
+        .case-header {
+            padding: 50px 60px;
+            border-bottom: 1px solid var(--border-color);
+            background: linear-gradient(180deg, rgba(13, 14, 24, 0.4) 0%, transparent 100%);
+        }
+
+        .case-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .case-title {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .case-subtitle {
+            font-size: 18px;
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-family: var(--font-display);
+        }
+
+        /* Advanced Audio Player Bar */
+        .audio-player-container {
+            margin-top: 35px;
+            background: rgba(13, 14, 24, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(139, 92, 246, 0.02);
+            backdrop-filter: blur(20px);
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .player-ctrl-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .player-ctrl-btn:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .audio-btn {
+            background: var(--primary-gradient);
+            border: none;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition-smooth);
+            box-shadow: 0 6px 18px rgba(139, 92, 246, 0.35);
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+        }
+
+        .audio-info {
+            flex-grow: 1;
+            font-size: 13px;
+        }
+
+        .audio-title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .audio-title-bar span {
+            font-weight: 700;
+            color: white;
+            font-family: var(--font-display);
+            letter-spacing: 0.5px;
+        }
+
+        /* Speed Badge */
+        .speed-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .speed-badge:hover {
+            background: var(--primary);
+            color: white;
+            border-color: transparent;
+        }
+
+        .audio-progress-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .audio-progress-bar:hover {
+            height: 8px;
+        }
+
+        .audio-progress-fill {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 10px;
+            width: 0%;
+            position: relative;
+        }
+
+        .audio-time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+        /* Reading Area Layout */
+        .case-body {
+            padding: 50px 60px 80px 60px;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-size: 16px;
+            color: #e2e8f0;
+        }
+
+        /* Highly Styled Markdown Components */
+        .markdown-rendered h1, 
+        .markdown-rendered h2, 
+        .markdown-rendered h3 {
+            font-family: var(--font-display);
+            font-weight: 800;
+            color: white;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .markdown-rendered h1 {
+            font-size: 28px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+            margin-top: 50px;
+            background: linear-gradient(90deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .markdown-rendered h2 {
+            font-size: 22px;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+        }
+
+        .markdown-rendered h3 {
+            font-size: 18px;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .markdown-rendered p {
+            margin-bottom: 20px;
+            color: #cbd5e1;
+        }
+
+        .markdown-rendered blockquote {
+            background: rgba(139, 92, 246, 0.03);
+            border-left: 4px solid var(--primary);
+            padding: 20px 25px;
+            margin: 35px 0;
+            border-radius: 0 16px 16px 0;
+            border: 1px solid rgba(139, 92, 246, 0.08);
+            border-left: 4px solid var(--primary);
+        }
+
+        .markdown-rendered blockquote p {
+            font-style: italic;
+            color: #e2e8f0;
+            margin-bottom: 0;
+            font-size: 17px;
+        }
+
+        .markdown-rendered blockquote h3 {
+            margin-top: 0 !important;
+            margin-bottom: 8px !important;
+            font-size: 19px;
+            color: #a78bfa;
+        }
+
+        .markdown-rendered ul, 
+        .markdown-rendered ol {
+            margin-left: 25px;
+            margin-bottom: 25px;
+            color: #cbd5e1;
+        }
+
+        .markdown-rendered li {
+            margin-bottom: 10px;
+            padding-left: 5px;
+        }
+
+        /* Highlight box for Reflection Questions (Góc nghiền ngẫm) */
+        .markdown-rendered h2:contains("🔮 GÓC NGHIỀN NGẪM"), 
+        .markdown-rendered h2:contains("🔮 Goc Nghien Ngam") {
+            color: #c084fc;
+        }
+
+        /* Customizing checklists */
+        .markdown-rendered li input[type="checkbox"] {
+            margin-right: 10px;
+            accent-color: var(--primary);
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        /* Responsive Mobile Layout */
+        @media (max-width: 992px) {
+            .app-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: 45vh;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .content-panel {
+                height: 55vh;
+            }
+            
+            .case-header, .case-body {
+                padding: 30px;
+            }
+            
+            .case-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PASSWORD GATE OVERLAY -->
+    <div id="password-gate">
+        <div class="gate-card">
+            <div class="gate-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h2>Marketing Premium Vault</h2>
+            <p>Vault này được mã hóa bảo mật. Vui lòng nhập mật khẩu của bạn để đồng bộ các bài phân tích chiến lược.</p>
+            <div class="password-input-group">
+                <input type="password" id="vault-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter') verifyPassword()">
+            </div>
+            <button class="gate-button" onclick="verifyPassword()">MỞ KHÓA HỆ THỐNG</button>
+            <div class="error-message" id="gate-error">
+                <i class="fa-solid fa-triangle-exclamation"></i> Mật khẩu chưa chính xác. Vui lòng thử lại!
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="app-container" style="display: none;">
+        
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="app-logo">
+                    <i class="fa-solid fa-award"></i>
+                    <h1>CMO Masterclass</h1>
+                </div>
+
+                <!-- Profile Stats Card -->
+                <div class="profile-section">
+                    <div class="profile-info">
+                        <span class="level-badge" id="user-level">Loading...</span>
+                        <span class="streak-count" id="streak-val"><i class="fa-solid fa-fire"></i> 0 Ngày</span>
+                    </div>
+                    <div class="xp-skills-grid">
+                        <div class="xp-item">
+                            <div class="xp-label"><span>Branding</span><span id="xp-branding">0 XP</span></div>
+                            <div class="xp-bar-container"><div class="xp-bar-fill" id="bar-branding"></div></div>
+                        </div>
+                        <div class="xp-item">
+                            <div class="xp-label"><span>Growth Hacking</span><span id="xp-growth">0 XP</span></div>
+                            <div class="xp-bar-container"><div class="xp-bar-fill" id="bar-growth"></div></div>
+                        </div>
+                        <div class="xp-item">
+                            <div class="xp-label"><span>Crisis Mgmt</span><span id="xp-crisis">0 XP</span></div>
+                            <div class="xp-bar-container"><div class="xp-bar-fill" id="bar-crisis"></div></div>
+                        </div>
+                        <div class="xp-item">
+                            <div class="xp-label"><span>Product Fit</span><span id="xp-fit">0 XP</span></div>
+                            <div class="xp-bar-container"><div class="xp-bar-fill" id="bar-fit"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search and Filters -->
+                <div class="search-container">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" class="search-input" id="search-input" placeholder="Tìm kiếm case, thương hiệu..." oninput="filterCases()">
+                </div>
+                <div class="filter-tags">
+                    <div class="filter-tag active" onclick="setFilter(this, 'all')">Tất cả</div>
+                    <div class="filter-tag" onclick="setFilter(this, 'Past')">🔵 Quá khứ</div>
+                    <div class="filter-tag" onclick="setFilter(this, 'Present')">🔴 Hiện tại</div>
+                </div>
+            </div>
+
+            <!-- Scrollable Case List -->
+            <div class="cases-list-container" id="cases-list">
+                <!-- Case Cards loaded dynamically -->
+            </div>
+        </div>
+
+        <!-- READER / CONTENT DISPLAY PANEL -->
+        <div class="content-panel">
+            
+            <!-- Empty state when no case is selected -->
+            <div class="empty-state" id="empty-state">
+                <i class="fa-solid fa-book-open"></i>
+                <h3>HỌC & NGHIỀN NGẪM MARKETING</h3>
+                <p>Chọn một Case Study ở bảng bên trái để kích hoạt bài phân tích chuyên sâu, kịch bản giải pháp đạt giải Quán quân cuộc thi và nghe Podcast audio.</p>
+            </div>
+
+            <!-- Full Case Details View -->
+            <div id="case-viewer" style="display: none;">
+                <div class="case-header">
+                    <div class="case-meta">
+                        <span class="case-tag" id="view-type-tag">Loading...</span>
+                        <span class="case-tag" id="view-theme-tag" style="background: rgba(139, 92, 246, 0.08); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.15);">Loading...</span>
+                    </div>
+                    <div class="case-title" id="view-title">Loading Title...</div>
+                    <div class="case-subtitle" id="view-brand">Loading Brand...</div>
+
+                    <!-- Embedded Advanced Audio Player -->
+                    <div class="audio-player-container" id="player-container" style="display: none;">
+                        <audio id="audio-elem" src="" ontimeupdate="updatePlayerProgress()" onended="onAudioEnded()"></audio>
+                        
+                        <div class="player-controls">
+                            <!-- Rewind 10s -->
+                            <button class="player-ctrl-btn" onclick="skipAudio(-10)"><i class="fa-solid fa-backward"></i></button>
+                            <!-- Play/Pause -->
+                            <button class="audio-btn" id="play-pause-btn" onclick="toggleAudio()">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                            <!-- Fast Forward 10s -->
+                            <button class="player-ctrl-btn" onclick="skipAudio(10)"><i class="fa-solid fa-forward"></i></button>
+                        </div>
+                        
+                        <div class="audio-info">
+                            <div class="audio-title-bar">
+                                <span>🎙️ Podcast Phân Tích Tiếng Việt</span>
+                                <span class="speed-badge" id="speed-indicator" onclick="changePlaySpeed()">1.0x</span>
+                            </div>
+                            <div class="audio-progress-bar" onclick="seekAudio(event)">
+                                <div class="audio-progress-fill" id="audio-progress"></div>
+                            </div>
+                            <div class="audio-time">
+                                <span id="current-time">00:00</span>
+                                <span id="duration-time">00:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Markdown Content rendered inside this block -->
+                <div class="case-body markdown-rendered" id="case-rendered-body">
+                    <!-- Markdown text compiles here -->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // MẬT KHẨU ĐƯỢC MÃ HÓA SHA-256 (Mặc định: 'cmo2026')
+        // Để đổi mật khẩu khác, hãy hash mật khẩu mới thành chuỗi sha256 rồi thay thế vào đây.
+        const VAULT_HASH = "b428d052d9a695b28d54d193d562211e406f5223363e157790b8fcf6144e5a95"; 
+        
+        let allCases = [];
+        let currentFilter = 'all';
+        let searchQuery = '';
+        let playbackSpeed = 1.0;
+
+        // Hàm băm SHA-256 dùng API của trình duyệt
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // Kiểm tra xem đã đăng nhập chưa
+        window.addEventListener('DOMContentLoaded', async () => {
+            if (localStorage.getItem("cmo_auth") === "true") {
+                unlockVault();
+            }
+        });
+
+        async function verifyPassword() {
+            const passInput = document.getElementById("vault-pass").value;
+            const hashed = await sha256(passInput);
+            
+            if (hashed === VAULT_HASH) {
+                localStorage.setItem("cmo_auth", "true");
+                unlockVault();
+            } else {
+                const err = document.getElementById("gate-error");
+                err.style.display = "block";
+                setTimeout(() => err.style.display = "none", 3000);
+            }
+        }
+
+        function unlockVault() {
+            document.getElementById("password-gate").style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById("password-gate").style.display = "none";
+                document.querySelector(".app-container").style.display = "flex";
+                loadCasesData();
+            }, 300);
+        }
+
+        // Tải dữ liệu data.json và dựng danh sách
+        async function loadCasesData() {
+            try {
+                const response = await fetch('data.json');
+                allCases = await response.json();
+                
+                calculateUserStats();
+                renderCaseCards();
+                
+                // Kiểm tra xem có tham số URL để mở trực tiếp 1 case cụ thể không (ví dụ: ?case=15)
+                const urlParams = new URLSearchParams(window.location.search);
+                const caseNumParam = urlParams.get('case');
+                if (caseNumParam) {
+                    const match = allCases.find(c => c.case_number == caseNumParam);
+                    if (match) {
+                        selectCase(match);
+                    }
+                }
+            } catch (error) {
+                console.error("Lỗi khi tải dữ liệu data.json:", error);
+            }
+        }
+
+        // Tính toán Điểm XP & Cấp độ & Chuỗi Streak của người dùng
+        function calculateUserStats() {
+            let branding = 0, growth = 0, crisis = 0, fit = 0;
+            allCases.forEach(c => {
+                if (c.skills_xp) {
+                    branding += c.skills_xp.Branding || 0;
+                    growth += c.skills_xp["Growth Hacking"] || 0;
+                    crisis += c.skills_xp["Crisis Management"] || 0;
+                    fit += c.skills_xp["Product Fit"] || 0;
+                }
+            });
+
+            // Cập nhật text XP
+            document.getElementById("xp-branding").innerText = branding + " XP";
+            document.getElementById("xp-growth").innerText = growth + " XP";
+            document.getElementById("xp-crisis").innerText = crisis + " XP";
+            document.getElementById("xp-fit").innerText = fit + " XP";
+
+            // Cập nhật thanh bar (giả định max là 150 XP cho mỗi kỹ năng ban đầu)
+            const maxXp = Math.max(150, Math.max(branding, growth, crisis, fit));
+            document.getElementById("bar-branding").style.width = (branding / maxXp * 100) + "%";
+            document.getElementById("bar-growth").style.width = (growth / maxXp * 100) + "%";
+            document.getElementById("bar-crisis").style.width = (crisis / maxXp * 100) + "%";
+            document.getElementById("bar-fit").style.width = (fit / maxXp * 100) + "%";
+
+            // Tính toán level
+            const totalXp = branding + growth + crisis + fit;
+            let levelTitle = "Intern Marketer";
+            
+            if (totalXp >= 600) levelTitle = "Marketing Legend";
+            else if (totalXp >= 400) levelTitle = "CMO Strategist";
+            else if (totalXp >= 250) levelTitle = "Senior Marketer";
+            else if (totalXp >= 100) levelTitle = "Junior Marketer";
+            
+            document.getElementById("user-level").innerText = levelTitle;
+
+            // Tính chuỗi streak học tập (giả định dựa trên số ngày học liên tục)
+            let streak = 0;
+            if (allCases.length > 0) {
+                const dates = allCases.map(c => c.date).sort();
+                const uniqueDates = [...new Set(dates)].map(d => new Date(d));
+                
+                let today = new Date();
+                today.setHours(0,0,0,0);
+                
+                let lastStudyDate = uniqueDates[uniqueDates.length - 1];
+                if (lastStudyDate) {
+                    lastStudyDate.setHours(0,0,0,0);
+                    let diffDays = Math.round((today - lastStudyDate) / (1000 * 60 * 60 * 24));
+                    
+                    if (diffDays <= 1) { // Đã học hôm nay hoặc hôm qua
+                        streak = 1;
+                        for (let i = uniqueDates.length - 2; i >= 0; i--) {
+                            let curr = uniqueDates[i];
+                            curr.setHours(0,0,0,0);
+                            let stepDiff = Math.round((lastStudyDate - curr) / (1000 * 60 * 60 * 24));
+                            if (stepDiff === 1) {
+                                streak++;
+                                lastStudyDate = curr;
+                            } else if (stepDiff > 1) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            document.getElementById("streak-val").innerHTML = `<i class="fa-solid fa-fire"></i> ${streak} Ngày`;
+        }
+
+        // Vẽ các thẻ Case Study ở Sidebar
+        function renderCaseCards() {
+            const listContainer = document.getElementById("cases-list");
+            listContainer.innerHTML = "";
+
+            // Lọc dữ liệu
+            const filtered = allCases.filter(c => {
+                const matchesFilter = currentFilter === 'all' || c.type === currentFilter;
+                const matchesSearch = c.brand.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      c.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      c.theme.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                listContainer.innerHTML = `<div style="text-align: center; color: var(--text-dark); padding: 20px; font-size: 13px;">Không tìm thấy Case Study nào phù hợp.</div>`;
+                return;
+            }
+
+            // Dựng thẻ
+            filtered.reverse().forEach(c => {
+                const card = document.createElement("div");
+                card.className = "case-card";
+                card.id = `card-${c.case_number}`;
+                
+                const typeText = c.type === "Present" ? "Hiện tại" : "Quá khứ";
+                const typeClass = c.type === "Present" ? "present" : "past";
+                
+                card.innerHTML = `
+                    <div class="case-card-header">
+                        <span class="case-tag ${typeClass}">${typeText}</span>
+                        <span class="case-card-date">${c.date}</span>
+                    </div>
+                    <div class="case-card-title">${c.title}</div>
+                    <div class="case-card-brand">${c.brand.toUpperCase()}</div>
+                `;
+                
+                card.onclick = () => selectCase(c);
+                listContainer.appendChild(card);
+            });
+        }
+
+        // Chọn và xem nội dung chi tiết 1 Case
+        async function selectCase(c) {
+            document.querySelectorAll(".case-card").forEach(el => el.classList.remove("active"));
+            const card = document.getElementById(`card-${c.case_number}`);
+            if (card) card.classList.add("active");
+
+            document.getElementById("empty-state").style.display = "none";
+            document.getElementById("case-viewer").style.display = "block";
+
+            document.getElementById("view-type-tag").innerText = c.type === "Present" ? "🔴 Hiện tại (2025/2026)" : "🔵 Quá khứ (Lịch sử)";
+            document.getElementById("view-type-tag").className = `case-tag ${c.type === "Present" ? 'present' : 'past'}`;
+            document.getElementById("view-theme-tag").innerText = c.theme;
+            document.getElementById("view-title").innerText = c.title;
+            document.getElementById("view-brand").innerText = c.brand.toUpperCase();
+
+            // Khởi tạo audio player
+            const audioPlayer = document.getElementById("audio-elem");
+            const playerContainer = document.getElementById("player-container");
+            const playPauseBtn = document.getElementById("play-pause-btn");
+            
+            audioPlayer.pause();
+            playPauseBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+            
+            // Đặt lại tốc độ về 1.0x khi đổi bài
+            playbackSpeed = 1.0;
+            audioPlayer.playbackRate = 1.0;
+            document.getElementById("speed-indicator").innerText = "1.0x";
+            
+            if (c.audio_filename) {
+                audioPlayer.src = `cases/audio/${c.audio_filename}`;
+                playerContainer.style.display = "flex";
+                document.getElementById("audio-progress").style.width = "0%";
+                document.getElementById("current-time").innerText = "00:00";
+            } else {
+                playerContainer.style.display = "none";
+            }
+
+            // Tải nội dung Markdown và render
+            try {
+                const mdResponse = await fetch(`cases/markdown/${c.markdown_filename}`);
+                const mdText = await mdResponse.text();
+                
+                // Cắt bỏ phần tiêu đề h1 đầu tiên
+                const cleanMdText = mdText.replace(/^#\s+.*$/m, "");
+                
+                document.getElementById("case-rendered-body").innerHTML = marked.parse(cleanMdText);
+            } catch (err) {
+                console.error("Lỗi khi tải file Markdown:", err);
+                document.getElementById("case-rendered-body").innerHTML = `<div style="color: #f87171; padding: 20px;">Không thể hiển thị bài phân tích Markdown.</div>`;
+            }
+            
+            document.querySelector(".content-panel").scrollTop = 0;
+        }
+
+        // Tải các bộ lọc
+        function setFilter(element, filterType) {
+            document.querySelectorAll(".filter-tag").forEach(el => el.classList.remove("active"));
+            element.classList.add("active");
+            currentFilter = filterType;
+            renderCaseCards();
+        }
+
+        function filterCases() {
+            searchQuery = document.getElementById("search-input").value;
+            renderCaseCards();
+        }
+
+        // AUDIO PLAYER LOGIC
+        const audio = document.getElementById("audio-elem");
+        const playBtn = document.getElementById("play-pause-btn");
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playBtn.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+            } else {
+                audio.pause();
+                playBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+            }
+        }
+
+        function skipAudio(seconds) {
+            if (audio.src) {
+                audio.currentTime = Math.max(0, Math.min(audio.duration, audio.currentTime + seconds));
+            }
+        }
+
+        function changePlaySpeed() {
+            if (!audio.src) return;
+            
+            if (playbackSpeed === 1.0) playbackSpeed = 1.25;
+            else if (playbackSpeed === 1.25) playbackSpeed = 1.5;
+            else if (playbackSpeed === 1.5) playbackSpeed = 2.0;
+            else playbackSpeed = 1.0;
+            
+            audio.playbackRate = playbackSpeed;
+            document.getElementById("speed-indicator").innerText = playbackSpeed + "x";
+        }
+
+        function updatePlayerProgress() {
+            if (audio.duration) {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                document.getElementById("audio-progress").style.width = progressPercent + "%";
+                
+                document.getElementById("current-time").innerText = formatTime(audio.currentTime);
+                document.getElementById("duration-time").innerText = formatTime(audio.duration);
+            }
+        }
+
+        function seekAudio(event) {
+            const progressBar = event.currentTarget;
+            const totalWidth = progressBar.offsetWidth;
+            const clickX = event.offsetX;
+            
+            if (audio.duration) {
+                audio.currentTime = (clickX / totalWidth) * audio.duration;
+            }
+        }
+
+        function onAudioEnded() {
+            playBtn.innerHTML = `<i class="fa-solid fa-play"></i>`;
+            document.getElementById("audio-progress").style.width = "0%";
+            document.getElementById("current-time").innerText = "00:00";
+        }
+
+        function formatTime(seconds) {
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+        }
+    </script>
+</body>
+</html>

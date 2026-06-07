@@ -1,0 +1,59 @@
+name: Daily Marketing Case Study Generator
+
+on:
+  schedule:
+    # Chạy tự động lúc 05:00 UTC (tức 12:00 trưa giờ Việt Nam - ICT = GMT+7) hàng ngày
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    # Cho phép kích hoạt thủ công từ giao diện web GitHub
+
+permissions:
+  contents: write  # Phân quyền cho phép commit và push code lên repo
+
+jobs:
+  generate-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Marketing Case Generator
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+        SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
+        RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
+        # Lấy tự động URL của GitHub Pages (ví dụ: https://username.github.io/repo-name)
+        GITHUB_PAGES_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+      run: |
+        python src/generate.py
+
+    - name: Commit and Push Changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+        # Thêm các file mới tạo và thay đổi
+        git add cases/markdown/ cases/audio/ data.json README.md
+        
+        # Kiểm tra xem có gì thay đổi để commit không
+        if git diff --cached --quiet; then
+          echo "Không có thay đổi nào để commit."
+        else
+          git commit -m "chore: auto-generate daily marketing case & podcast [skip ci]"
+          git push origin main
+        fi
