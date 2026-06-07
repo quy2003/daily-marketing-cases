@@ -25,7 +25,7 @@ def load_env():
     """Tự động tải các biến môi trường từ file .env nếu có (không cần cài thêm python-dotenv)."""
     env_path = os.path.join(BASE_DIR, ".env")
     if os.path.exists(env_path):
-        print("Đang tải cấu hình từ file .env cục bộ...")
+        print("Loading environment variables from local .env file...")
         with open(env_path, "r", encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
@@ -58,7 +58,7 @@ def get_existing_cases():
             with open(DATA_FILE, "r", encoding="utf-8") as f:
                 return json.load(f)
         except Exception as e:
-            print(f"Lỗi khi đọc data.json: {e}")
+            print(f"Error reading data.json: {e}")
             return []
     return []
 
@@ -102,7 +102,7 @@ async def generate_podcast_audio(script_text, output_path):
     
     communicate = edge_tts.Communicate(clean_text, voice)
     await communicate.save(output_path)
-    print(f"Đã lưu file Podcast audio tại: {output_path}")
+    print(f"Saved Podcast audio to: {output_path}")
 
 def build_prompt(case_number, is_present, covered_brands):
     """Tạo Prompt chất lượng cao gửi cho Gemini API."""
@@ -174,7 +174,7 @@ def generate_case_study(case_number, is_present, covered_brands):
     # gemini-1.5-flash là model nhanh và có hỗ trợ JSON output định cấu trúc tốt
     model = genai.GenerativeModel('gemini-1.5-flash')
     
-    print(f"Đang gọi Gemini API để tạo Case Study #{case_number} ({'Hiện tại' if is_present else 'Quá khứ'})...")
+    print(f"Calling Gemini API to generate Case Study #{case_number} ({'Present' if is_present else 'Past'})...")
     response = model.generate_content(
         prompt,
         generation_config={"response_mime_type": "application/json"}
@@ -193,8 +193,8 @@ def generate_case_study(case_number, is_present, covered_brands):
         case_data = json.loads(content_text)
         return case_data
     except Exception as e:
-        print(f"Lỗi khi parse JSON từ Gemini: {e}")
-        print("Response text nhận được:")
+        print(f"Error parsing JSON from Gemini: {e}")
+        print("Received response text:")
         print(response.text)
         raise e
 
@@ -285,7 +285,7 @@ def save_to_markdown(case, case_number, date_str):
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(md_content)
         
-    print(f"Đã lưu file Markdown tại: {filepath}")
+    print(f"Saved Markdown file to: {filepath}")
     return filepath, filename
 
 def update_readme(cases_list):
@@ -367,12 +367,12 @@ Dưới đây là sơ đồ liên kết các case study đã học (tự động
 """
     with open(README_FILE, "w", encoding="utf-8") as f:
         f.write(readme_template)
-    print("Đã cập nhật file README.md.")
+    print("Updated README.md file.")
 
 def send_notification_email(case, case_number, date_str, audio_filename, web_url):
     """Gửi email HTML thông báo (Daily Trigger Email) cho người dùng."""
     if not SENDER_EMAIL or not SENDER_PASSWORD or not RECEIVER_EMAIL:
-        print("WARNING: Cấu hình email thiếu (SENDER_EMAIL / SENDER_PASSWORD / RECEIVER_EMAIL). Bỏ qua gửi email.")
+        print("WARNING: Missing email configuration (SENDER_EMAIL / SENDER_PASSWORD / RECEIVER_EMAIL). Skipping email.")
         return False
         
     c_type = "Hiện tại (2025/2026)" if case.get("type") == "Present" else "Quá khứ (Lịch sử)"
@@ -532,14 +532,14 @@ def send_notification_email(case, case_number, date_str, audio_filename, web_url
         server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, msg.as_string())
         server.quit()
         
-        print("Đã gửi email thông báo học tập thành công!")
+        print("Notification email sent successfully!")
         return True
     except Exception as e:
-        print(f"Lỗi khi gửi email qua SMTP: {e}")
+        print(f"Error sending email via SMTP: {e}")
         return False
 
 async def main():
-    print("=== BẮT ĐẦU CHẠY THIẾT LẬP GENERATE CASE MARKETING ===")
+    print("=== STARTING DAILY MARKETING CASE STUDY GENERATION ===")
     
     # 1. Lấy dữ liệu cũ để đếm số thứ tự case và lấy danh sách brand đã học
     existing_cases = get_existing_cases()
@@ -556,7 +556,7 @@ async def main():
     try:
         case_data = generate_case_study(case_number, is_present, covered_brands)
     except Exception as e:
-        print(f"Không thể sinh case study từ Gemini: {e}")
+        print(f"Could not generate case study from Gemini: {e}")
         return
         
     date_str = datetime.now().strftime("%Y-%m-%d")
@@ -570,7 +570,7 @@ async def main():
     try:
         await generate_podcast_audio(podcast_script, audio_path)
     except Exception as e:
-        print(f"Lỗi khi tạo file Audio: {e}")
+        print(f"Error generating Audio file: {e}")
         # Vẫn tiếp tục chạy để không bị gián đoạn sinh text
         audio_filename = ""
         
@@ -596,7 +596,7 @@ async def main():
     
     existing_cases.append(new_case_summary)
     save_cases_data(existing_cases)
-    print("Đã cập nhật data.json với case mới.")
+    print("Updated data.json with new case.")
     
     # 7. Cập nhật README.md
     update_readme(existing_cases)
@@ -610,7 +610,7 @@ async def main():
         GITHUB_PAGES_URL
     )
     
-    print("=== HOÀN THÀNH CHẠY SCRIPT GENERATE ===")
+    print("=== COMPLETED GENERATION SUCCESSFULLY ===")
 
 if __name__ == "__main__":
     asyncio.run(main())
