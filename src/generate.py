@@ -9,6 +9,38 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import google.generativeai as genai
 import edge_tts
+import typing_extensions as typing
+from pydantic import BaseModel, Field
+
+class GlossaryItem(BaseModel):
+    term: str = Field(description="Tên thuật ngữ marketing")
+    definition: str = Field(description="Định nghĩa thuật ngữ")
+    example: str = Field(description="Ví dụ minh họa thuật ngữ")
+
+class CaseBrief(BaseModel):
+    client_profile: str = Field(description="Thông tin/Bối cảnh của doanh nghiệp")
+    market_context: str = Field(description="Bối cảnh thị trường và đối thủ")
+    target_insight: str = Field(description="Sự thật ngầm hiểu về khách hàng")
+    problem_statement: str = Field(description="Bài toán chiến lược cần giải")
+
+class ChampionProposal(BaseModel):
+    positioning: str = Field(description="Định hướng định vị thương hiệu")
+    big_idea: str = Field(description="Ý tưởng lớn/Slogan chiến dịch")
+    imc_plan: str = Field(description="Kế hoạch truyền thông tích hợp")
+    kpi_budget: str = Field(description="KPIs đo lường và phân bổ ngân sách")
+
+class MarketingCase(BaseModel):
+    brand: str = Field(description="Tên thương hiệu")
+    title: str = Field(description="Tiêu đề bài phân tích")
+    theme: str = Field(description="Chủ đề cốt lõi của case")
+    one_minute_takeaway: str = Field(description="Tóm tắt nhanh trong 1 phút")
+    case_brief: CaseBrief = Field(description="Nội dung Case Brief")
+    champion_proposal: ChampionProposal = Field(description="Nội dung giải pháp đạt giải")
+    historical_reflection: str = Field(description="Đối chiếu thực tế lịch sử hoặc bình luận chiến lược")
+    glossary: typing.List[GlossaryItem] = Field(description="Từ điển thuật ngữ marketing thực chiến")
+    action_checklist: typing.List[str] = Field(description="Danh sách hành động thực tế ngày mai (3 hành động)")
+    reflection_questions: typing.List[str] = Field(description="Góc nghiền ngẫm với 3 câu hỏi gợi mở")
+    podcast_script: str = Field(description="Kịch bản Podcast tiếng Việt thời lượng dài tự nhiên")
 
 # Cấu hình đường dẫn
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -102,7 +134,7 @@ async def generate_podcast_audio(script_text, output_path):
     
     communicate = edge_tts.Communicate(clean_text, voice)
     await communicate.save(output_path)
-    print(f"Saved Podcast audio to: {output_path}")
+    print(f"Saved Podcast audio: {os.path.basename(output_path)}")
 
 def build_prompt(case_number, is_present, covered_brands):
     """Tạo Prompt chất lượng cao gửi cho Gemini API."""
@@ -171,13 +203,16 @@ def generate_case_study(case_number, is_present, covered_brands):
     prompt = build_prompt(case_number, is_present, covered_brands)
     
     # Cấu hình model
-    # gemini-1.5-flash là model nhanh và có hỗ trợ JSON output định cấu trúc tốt
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    # gemini-2.5-flash là model nhanh và có hỗ trợ JSON output định cấu trúc tốt
+    model = genai.GenerativeModel('gemini-2.5-flash')
     
     print(f"Calling Gemini API to generate Case Study #{case_number} ({'Present' if is_present else 'Past'})...")
     response = model.generate_content(
         prompt,
-        generation_config={"response_mime_type": "application/json"}
+        generation_config={
+            "response_mime_type": "application/json",
+            "response_schema": MarketingCase
+        }
     )
     
     # Parse JSON
@@ -194,20 +229,24 @@ def generate_case_study(case_number, is_present, covered_brands):
         return case_data
     except Exception as e:
         print(f"Error parsing JSON from Gemini: {e}")
-        print("Received response text:")
-        print(response.text)
+        try:
+            with open("debug_response.txt", "w", encoding="utf-8") as f:
+                f.write(response.text)
+            print("Received invalid response. Raw text saved to debug_response.txt for inspection.")
+        except Exception as write_err:
+            print(f"Could not save debug response: {write_err}")
         raise e
 
 def save_to_markdown(case, case_number, date_str):
     """Chuyển đổi dữ liệu JSON thành file Markdown đẹp mắt để lưu trữ trên GitHub."""
-    brand = case["brand"]
+    brand = case.get("brand", "Unknown")
     filename = f"{date_str}-{brand.lower().replace(' ', '-')}.md"
     filepath = os.path.join(CASES_MD_DIR, filename)
     
     # Định dạng mảng thành Markdown
     glossary_md = ""
     for item in case.get("glossary", []):
-        glossary_md += f"**{item['term']}**: {item['definition']}\n* *Ví dụ:* {item['example']}\n\n"
+        glossary_md += f"**{item.get('term', '')}**: {item.get('definition', '')}\n* *Ví dụ:* {item.get('example', '')}\n\n"
         
     checklist_md = ""
     for item in case.get("action_checklist", []):
@@ -217,55 +256,58 @@ def save_to_markdown(case, case_number, date_str):
     for i, item in enumerate(case.get("reflection_questions", [])):
         questions_md += f"{i+1}. {item}\n"
 
-    # Tạo nội dung Markdown
-    md_content = f"""# [CASE #{case_number}] {case['title']}
+    case_brief = case.get("case_brief", {})
+    champion_proposal = case.get("champion_proposal", {})
 
-- **Thương hiệu:** {case['brand']}
-- **Chủ đề cốt lõi:** `{case['theme']}`
+    # Tạo nội dung Markdown
+    md_content = f"""# [CASE #{case_number}] {case.get('title', 'Untitled')}
+
+- **Thương hiệu:** {brand}
+- **Chủ đề cốt lõi:** `{case.get('theme', 'General')}`
 - **Phân loại:** `{'Hiện tại (2025/2026)' if case.get('type') == 'Present' or case_number % 3 == 0 else 'Quá khứ (Lịch sử)'}`
 - **Ngày phát hành:** {date_str}
 
 ---
 
 ## ⚡ TÓM TẮT 1 PHÚT (The 1-Minute Takeaway)
-{case['one_minute_takeaway']}
+{case.get('one_minute_takeaway', '')}
 
 ---
 
 ## 🏆 ĐỀ BÀI CHI TIẾT (Case Brief)
 
 ### 🏢 Bối cảnh Doanh nghiệp (Client Profile)
-{case['case_brief']['client_profile']}
+{case_brief.get('client_profile', '')}
 
 ### 📊 Bối cảnh Thị trường & Đối thủ (Market Context)
-{case['case_brief']['market_context']}
+{case_brief.get('market_context', '')}
 
 ### 🧠 Thấu hiểu khách hàng (Consumer Insights)
-{case['case_brief']['target_insight']}
+{case_brief.get('target_insight', '')}
 
 ### 🎯 Bài toán Chiến lược cần giải quyết (Problem Statement)
-> **{case['case_brief']['problem_statement']}**
+> **{case_brief.get('problem_statement', '')}**
 
 ---
 
 ## 💡 ĐỀ XUẤT ĐẠT GIẢI QUÁN QUÂN (Champion Proposal)
 
 ### 🚀 Định vị & Mục tiêu (Positioning)
-{case['champion_proposal']['positioning']}
+{champion_proposal.get('positioning', '')}
 
 ### 🔮 Ý tưởng lớn (The Big Idea)
-> ### **"{case['champion_proposal']['big_idea']}"**
+> ### **"{champion_proposal.get('big_idea', '')}"**
 
 ### 📅 Kế hoạch truyền thông tích hợp (IMC Plan)
-{case['champion_proposal']['imc_plan']}
+{champion_proposal.get('imc_plan', '')}
 
 ### 📊 Đo lường & Ngân sách (KPIs & Budget)
-{case['champion_proposal']['kpi_budget']}
+{champion_proposal.get('kpi_budget', '')}
 
 ---
 
 ## 🏛️ ĐỐI CHIẾU THỰC TẾ & BÌNH LUẬN CHIẾN LƯỢC
-{case['historical_reflection']}
+{case.get('historical_reflection', '')}
 
 ---
 
@@ -285,7 +327,7 @@ def save_to_markdown(case, case_number, date_str):
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(md_content)
         
-    print(f"Saved Markdown file to: {filepath}")
+    print(f"Saved Markdown file: {filename}")
     return filepath, filename
 
 def update_readme(cases_list):
