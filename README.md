@@ -24,8 +24,9 @@ Dưới đây là sơ đồ liên kết các case study đã học (tự động
 
 ```mermaid
 graph TD
-    %% Mạng lưới liên kết các case study sẽ tự động sinh ở đây %%
     Start[Bắt đầu hành trình học tập] --> DailyCases[Danh sách Case Study]
+    DailyCases --> Apple["Apple"]
+    Apple --> BrandRebirthEmotionalBrandingValueBasedMarketingCommunityBuilding["Brand Rebirth, Emotional Branding, Value-Based Marketing, Community Building"]
 ```
 
 ---
@@ -34,10 +35,10 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| *Hệ thống sẽ tự động cập nhật nhật ký học tập tại đây hàng ngày* |
+| #1 | 2026-06-08 | **Apple** | 🔵 Quá khứ | `Brand Rebirth, Emotional Branding, Value-Based Marketing, Community Building` | [Xem chi tiết](cases/markdown/2026-06-08-apple.md) |
 
 ---
 
 ## 🛠️ Hướng dẫn cài đặt và thiết lập dự án
 
-*Xem chi tiết hướng dẫn thiết lập trong tài liệu hướng dẫn đi kèm.*
+*Mở file hướng dẫn thiết lập của dự án để cấu hình GitHub Secrets.*
