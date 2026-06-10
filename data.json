@@ -49,5 +49,22 @@
       "Growth Hacking": 0,
       "Product Fit": 0
     }
+  },
+  {
+    "case_number": 4,
+    "brand": "Starbucks",
+    "title": "Starbucks: Kiến Tạo 'Ngôi Nhà Thứ Ba' (The Third Place)",
+    "theme": "Marketing Trải Nghiệm & Định Vị Không Gian Cộng Đồng",
+    "type": "Past",
+    "date": "2026-06-10",
+    "one_minute_takeaway": "Starbucks đã không chỉ bán cà phê mà còn kiến tạo một \"ngôi nhà thứ ba\" ấm cúng giữa nhà và nơi làm việc. Thành công của họ đến từ việc hiểu sâu sắc nhu cầu xã hội và tâm lý khách hàng, biến mỗi cửa hàng thành một điểm đến độc đáo. Đây là bài học kinh điển về giá trị vượt ngoài sản phẩm, tập trung vào trải nghiệm và không gian cộng đồng.",
+    "markdown_filename": "2026-06-10-starbucks.md",
+    "audio_filename": "2026-06-10-starbucks.mp3",
+    "skills_xp": {
+      "Product Fit": 20,
+      "Crisis Management": 20,
+      "Branding": 0,
+      "Growth Hacking": 0
+    }
   }
 ]
