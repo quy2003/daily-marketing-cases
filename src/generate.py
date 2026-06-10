@@ -165,36 +165,37 @@ CÁC THƯƠNG HIỆU ĐÃ ĐƯỢC HỌC (KHÔNG ĐƯỢC CHỌN LẠI): {brands
 HƯỚNG DẪN NỘI DUNG:
 {scenario_guideline}
 
-Hãy thiết kế nội dung bài phân tích này theo cấu trúc chuẩn của một Cuộc thi Giải Case Marketing danh giá (như Young Marketers, Nielsen Case Competition) và trả về kết quả dưới dạng cấu trúc JSON chính xác như định nghĩa bên dưới.
+Hãy thiết kế nội dung bài phân tích này theo cấu trúc chuẩn của một Cuộc thi Giải Case Marketing danh giá và trả về kết quả dưới dạng cấu trúc JSON chính xác như định nghĩa bên dưới.
+
+LƯU Ý QUAN TRỌNG VỀ ĐỘ DÀI: Để đảm bảo phản hồi không bị quá tải giới hạn token của hệ thống, hãy viết cực kỳ ngắn gọn, súc tích và cô đọng. Tránh viết quá dài dòng ở các mục.
 
 YÊU CẦU CẤU TRÚC JSON PHẢN HỒI:
 Trả về duy nhất một đối tượng JSON (không chứa ký tự thừa bên ngoài, đặt trong block ```json ... ```) có các trường sau:
 
 1. "brand": Tên thương hiệu (ví dụ: "Nike")
-2. "title": Tiêu đề Case Study (ví dụ: "Nike 1988: Vực dậy gã khổng lồ bằng Just Do It")
-3. "theme": Chủ đề cốt lõi (ví dụ: "Emotional Branding & Market Positioning")
-4. "one_minute_takeaway": Tóm tắt nhanh trong 1 phút (3-4 câu ngắn gọn, súc tích chứa giá trị cốt lõi).
-5. "case_brief": Đối tượng đề bài (chứa các chuỗi Markdown):
-   - "client_profile": Giới thiệu doanh nghiệp và tình thế.
-   - "market_context": Bối cảnh thị trường, đối thủ cạnh tranh.
-   - "target_insight": Thấu hiểu khách hàng (nỗi đau thầm kín, sự thật ngầm hiểu).
-   - "problem_statement": Câu hỏi chiến lược / Bài toán cốt lõi cần giải quyết.
-6. "champion_proposal": Giải pháp đạt giải Quán quân cuộc thi (chứa các chuỗi Markdown):
-   - "positioning": Định hướng định vị thương hiệu và nhóm mục tiêu.
-   - "big_idea": Ý tưởng lớn đột phá (Big Idea, Slogan chiến dịch).
-   - "imc_plan": Kế hoạch truyền thông tích hợp 3 giai đoạn (Trigger - Engage - Amplify) chi tiết các hoạt động cụ thể.
-   - "kpi_budget": Chỉ số đo lường hiệu quả (KPIs) và phân bổ ngân sách mẫu.
-7. "historical_reflection": Bình luận & Đối chiếu thực tế lịch sử (với Case Quá khứ) HOẶC Phân tích xu hướng tương lai/Khuyến nghị thực chiến (với Case Hiện tại) dưới dạng Markdown.
-8. "glossary": Danh sách 2-3 thuật ngữ marketing cốt lõi sử dụng trong bài:
-   - Một mảng gồm các đối tượng: {{"term": "Tên thuật ngữ", "definition": "Định nghĩa bình dân dễ hiểu", "example": "Ví dụ cụ thể quy mô nhỏ"}}
-9. "action_checklist": Mảng gồm 3 hành động cụ thể, quy mô nhỏ áp dụng được ngay vào ngày mai (Checklist hành động).
-10. "reflection_questions": Mảng gồm 3 câu hỏi gợi mở để người học tự suy ngẫm và liên hệ thực tế.
-11. "podcast_script": Kịch bản Podcast Tiếng Việt thời lượng dài (khoảng 1000 - 1500 từ). 
-    - Viết dưới dạng kịch bản nói cực kỳ cuốn hút, tự nhiên, sinh động, ngôn ngữ dí dỏm, thực tế của chuyên gia marketing chia sẻ với người học.
-    - Cấu trúc kịch bản gồm: Phần mở đầu cuốn hút, Kể câu chuyện bối cảnh lịch sử/hiện tại, Phân tích sâu bài giải Quán quân, Giải thích các thuật ngữ chuyên ngành dễ hiểu, Đưa ra góc nhìn phản tư/nghiền ngẫm sâu sắc và Lời kết thúc thúc đẩy hành động.
-    - Kịch bản viết bằng tiếng Việt trôi chảy, không chứa các ký tự hướng dẫn giọng đọc trong ngoặc vuông để phục vụ đọc Text-to-Speech tốt nhất.
+2. "title": Tiêu đề Case Study ngắn gọn (ví dụ: "Nike 1988: Vực dậy bằng 'Just Do It'")
+3. "theme": Chủ đề cốt lõi (ví dụ: "Emotional Branding")
+4. "one_minute_takeaway": Tóm tắt nhanh trong 2-3 câu ngắn gọn chứa giá trị cốt lõi.
+5. "case_brief" (chứa các chuỗi Markdown ngắn gọn):
+   - "client_profile": Giới thiệu doanh nghiệp và tình thế (tối đa 3 câu).
+   - "market_context": Bối cảnh thị trường, đối thủ cạnh tranh (tối đa 3 câu).
+   - "target_insight": Thấu hiểu khách hàng / sự thật ngầm hiểu (tối đa 2 câu).
+   - "problem_statement": Câu hỏi chiến lược / Bài toán cốt lõi cần giải quyết (1 câu).
+6. "champion_proposal" (chứa các chuỗi Markdown ngắn gọn):
+   - "positioning": Định hướng định vị thương hiệu ngắn gọn (tối đa 2 câu).
+   - "big_idea": Ý tưởng lớn đột phá / Slogan chiến dịch.
+   - "imc_plan": Kế hoạch truyền thông 3 giai đoạn (Trigger - Engage - Amplify) viết ngắn gọn dưới dạng gạch đầu dòng.
+   - "kpi_budget": KPIs hiệu quả và phân bổ ngân sách tóm tắt ngắn.
+7. "historical_reflection": Bình luận & Đối chiếu thực tế lịch sử hoặc xu hướng tương lai ngắn gọn trong 1 đoạn văn (tối đa 4-5 câu).
+8. "glossary": Danh sách 2 thuật ngữ marketing cốt lõi sử dụng trong bài:
+   - Một mảng gồm các đối tượng: {{"term": "Tên thuật ngữ", "definition": "Định nghĩa bình dân ngắn gọn", "example": "Ví dụ cụ thể rất ngắn"}}
+9. "action_checklist": Mảng gồm 3 hành động cụ thể áp dụng được ngay vào ngày mai (Checklist hành động ngắn).
+10. "reflection_questions": Mảng gồm 3 câu hỏi gợi mở để người học tự suy ngẫm.
+11. "podcast_script": Kịch bản Podcast Tiếng Việt thời lượng ngắn gọn, súc tích (khoảng 300 - 450 từ).
+    - Viết dưới dạng kịch bản nói cuốn hút, tự nhiên, đi thẳng vào các ý chính (bối cảnh, giải pháp, bài học cốt lõi).
+    - Không viết dài dòng lê thê để tránh bị cắt cụt. Kịch bản viết bằng tiếng Việt trôi chảy, không chứa các ký tự hướng dẫn giọng đọc trong ngoặc.
 
-Chú ý: Hãy đảm bảo văn phong chuyên nghiệp, sâu sắc, lập luận chặt chẽ và truyền cảm hứng.
+Chú ý: Hãy đảm bảo văn phong chuyên nghiệp, cô đọng, sâu sắc.
 """
     return prompt
 
@@ -211,14 +212,21 @@ def generate_case_study(case_number, is_present, covered_brands):
         prompt,
         generation_config={
             "response_mime_type": "application/json",
-            "response_schema": MarketingCase
-        }
+            "response_schema": MarketingCase,
+            "max_output_tokens": 8192
+        },
+        request_options={"timeout": 180}
     )
     
     # Parse JSON
     try:
-        # Đôi khi model bọc JSON trong block ```json ... ```
         content_text = response.text.strip()
+        try:
+            with open("debug_response.txt", "w", encoding="utf-8") as f:
+                f.write(content_text)
+        except Exception as write_err:
+            print(f"Could not save debug response: {write_err}")
+
         if content_text.startswith("```json"):
             content_text = content_text[7:]
         if content_text.endswith("```"):
@@ -418,7 +426,9 @@ def send_notification_email(case, case_number, date_str, audio_filename, web_url
         return False
         
     c_type = "Hiện tại (2025/2026)" if case.get("type") == "Present" else "Quá khứ (Lịch sử)"
-    subject = f"[Daily Marketing Case] #{case_number}: {case['brand'].upper()} - {case['title']}"
+    brand_name = case.get("brand", "Unknown").upper()
+    title_name = case.get("title", "Untitled")
+    subject = f"[Daily Marketing Case] #{case_number}: {brand_name} - {title_name}"
     
     # Tạo HTML Template sang trọng
     html_content = f"""
@@ -526,14 +536,14 @@ def send_notification_email(case, case_number, date_str, audio_filename, web_url
         <div class="container">
             <div class="header">
                 <span class="badge {'badge-present' if case.get('type') == 'Present' else 'badge-past'}">{c_type}</span>
-                <span class="badge" style="background-color: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3);">{case['theme']}</span>
-                <div class="title">CASE #{case_number}: {case['brand'].upper()}</div>
-                <div class="subtitle">{case['title']}</div>
+                <span class="badge" style="background-color: rgba(139, 92, 246, 0.15); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3);">{case.get('theme', 'General')}</span>
+                <div class="title">CASE #{case_number}: {case.get('brand', 'Unknown').upper()}</div>
+                <div class="subtitle">{case.get('title', 'Untitled')}</div>
             </div>
             
             <div class="takeaway-box">
                 <div class="takeaway-title">⚡ TÓM TẮT NHANH 1 PHÚT</div>
-                <div>{case['one_minute_takeaway']}</div>
+                <div>{case.get('one_minute_takeaway', '')}</div>
             </div>
             
             <div class="btn-container">
@@ -602,7 +612,7 @@ async def main():
         return
         
     date_str = datetime.now().strftime("%Y-%m-%d")
-    brand = case_data["brand"]
+    brand = case_data.get("brand", "Unknown")
     
     # 3. Tạo file âm thanh podcast từ kịch bản của Gemini
     audio_filename = f"{date_str}-{brand.lower().replace(' ', '-')}.mp3"
@@ -625,12 +635,12 @@ async def main():
     # 6. Cập nhật dữ liệu vào data.json
     new_case_summary = {
         "case_number": case_number,
-        "brand": case_data["brand"],
-        "title": case_data["title"],
-        "theme": case_data["theme"],
+        "brand": case_data.get("brand", "Unknown"),
+        "title": case_data.get("title", "Untitled"),
+        "theme": case_data.get("theme", "General"),
         "type": "Present" if is_present else "Past",
         "date": date_str,
-        "one_minute_takeaway": case_data["one_minute_takeaway"],
+        "one_minute_takeaway": case_data.get("one_minute_takeaway", ""),
         "markdown_filename": md_filename,
         "audio_filename": audio_filename if audio_filename else "",
         "skills_xp": skills_xp

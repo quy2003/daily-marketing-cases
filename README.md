@@ -29,6 +29,8 @@ graph TD
     Apple --> BrandRebirthEmotionalBrandingValueBasedMarketingCommunityBuilding["Brand Rebirth, Emotional Branding, Value-Based Marketing, Community Building"]
     DailyCases --> Nike["Nike"]
     Nike --> EmotionalBrandingMarketRepositioning["Emotional Branding, Market Re-positioning"]
+    DailyCases --> Netflix["Netflix"]
+    Netflix --> TinhVNnTng["Tái Định Vị Nền Tảng"]
 ```
 
 ---
@@ -37,6 +39,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #3 | 2026-06-10 | **Netflix** | 🔴 Hiện tại | `Tái Định Vị Nền Tảng & Chiến Lược Nội Dung Cho Thế Hệ Z/Alpha` | [Xem chi tiết](cases/markdown/2026-06-10-netflix.md) |
 | #2 | 2026-06-08 | **Nike** | 🔵 Quá khứ | `Emotional Branding, Market Re-positioning & Cultural Relevance` | [Xem chi tiết](cases/markdown/2026-06-08-nike.md) |
 | #1 | 2026-06-08 | **Apple** | 🔵 Quá khứ | `Brand Rebirth, Emotional Branding, Value-Based Marketing, Community Building` | [Xem chi tiết](cases/markdown/2026-06-08-apple.md) |
 

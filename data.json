@@ -32,5 +32,22 @@
       "Branding": 0,
       "Crisis Management": 0
     }
+  },
+  {
+    "case_number": 3,
+    "brand": "Netflix",
+    "title": "Netflix 2025: Giữ Chân Gen Z & Cuộc Chiến Nền Tảng Giải Trí Tương Tác",
+    "theme": "Tái Định Vị Nền Tảng & Chiến Lược Nội Dung Cho Thế Hệ Z/Alpha",
+    "type": "Present",
+    "date": "2026-06-10",
+    "one_minute_takeaway": "Netflix cần đổi mới để giữ chân Gen Z bằng cách tích hợp AI, nội dung tương tác và tính năng cộng đồng. 'Flux Feed' và 'Gamification' là chìa khóa để biến Netflix thành một nền tảng giải trí đa chiều, không chỉ tiêu thụ mà còn tham gia và kết nối.",
+    "markdown_filename": "2026-06-10-netflix.md",
+    "audio_filename": "2026-06-10-netflix.mp3",
+    "skills_xp": {
+      "Branding": 20,
+      "Crisis Management": 7,
+      "Growth Hacking": 0,
+      "Product Fit": 0
+    }
   }
 ]
