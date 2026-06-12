@@ -35,6 +35,8 @@ graph TD
     Starbucks --> MarketingTriNghim["Marketing Trải Nghiệm"]
     DailyCases --> Volkswagen["Volkswagen"]
     Volkswagen --> ContrarianMarketing["Contrarian Marketing"]
+    DailyCases --> TikTok["TikTok"]
+    TikTok --> UserEngagement["User Engagement"]
 ```
 
 ---
@@ -43,6 +45,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #6 | 2026-06-12 | **TikTok** | 🔴 Hiện tại | `User Engagement & Platform Diversification` | [Xem chi tiết](cases/markdown/2026-06-12-tiktok.md) |
 | #5 | 2026-06-11 | **Volkswagen** | 🔵 Quá khứ | `Contrarian Marketing & Authentic Positioning` | [Xem chi tiết](cases/markdown/2026-06-11-volkswagen.md) |
 | #4 | 2026-06-10 | **Starbucks** | 🔵 Quá khứ | `Marketing Trải Nghiệm & Định Vị Không Gian Cộng Đồng` | [Xem chi tiết](cases/markdown/2026-06-10-starbucks.md) |
 | #3 | 2026-06-10 | **Netflix** | 🔴 Hiện tại | `Tái Định Vị Nền Tảng & Chiến Lược Nội Dung Cho Thế Hệ Z/Alpha` | [Xem chi tiết](cases/markdown/2026-06-10-netflix.md) |
