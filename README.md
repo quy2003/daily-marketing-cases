@@ -37,6 +37,8 @@ graph TD
     Volkswagen --> ContrarianMarketing["Contrarian Marketing"]
     DailyCases --> TikTok["TikTok"]
     TikTok --> UserEngagement["User Engagement"]
+    DailyCases --> Pepsi["Pepsi"]
+    Pepsi --> General["General"]
 ```
 
 ---
@@ -45,6 +47,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #7 | 2026-06-13 | **Pepsi** | 🔵 Quá khứ | `General` | [Xem chi tiết](cases/markdown/2026-06-13-pepsi.md) |
 | #6 | 2026-06-12 | **TikTok** | 🔴 Hiện tại | `User Engagement & Platform Diversification` | [Xem chi tiết](cases/markdown/2026-06-12-tiktok.md) |
 | #5 | 2026-06-11 | **Volkswagen** | 🔵 Quá khứ | `Contrarian Marketing & Authentic Positioning` | [Xem chi tiết](cases/markdown/2026-06-11-volkswagen.md) |
 | #4 | 2026-06-10 | **Starbucks** | 🔵 Quá khứ | `Marketing Trải Nghiệm & Định Vị Không Gian Cộng Đồng` | [Xem chi tiết](cases/markdown/2026-06-10-starbucks.md) |
