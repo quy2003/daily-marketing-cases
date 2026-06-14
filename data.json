@@ -117,5 +117,22 @@
       "Branding": 0,
       "Crisis Management": 0
     }
+  },
+  {
+    "case_number": 8,
+    "brand": "Dove",
+    "title": "Dove 'Real Beauty': Định nghĩa lại chuẩn mực cái đẹp",
+    "theme": "Marketing Định Hướng Mục Đích & Sức Mạnh của Thông Điệp Chân Thật",
+    "type": "Past",
+    "date": "2026-06-14",
+    "one_minute_takeaway": "Chiến dịch 'Real Beauty' của Dove đã thay đổi nhận thức về cái đẹp, chuyển dịch từ hình ảnh lý tưởng hóa sang vẻ đẹp đa dạng, chân thực. Bằng cách trao quyền cho phụ nữ và thách thức các chuẩn mực xã hội, Dove không chỉ tăng trưởng kinh doanh mà còn xây dựng một thương hiệu có ý nghĩa sâu sắc, chứng minh rằng sự đồng cảm và mục đích có thể tạo ra tác động lớn.",
+    "markdown_filename": "2026-06-14-dove.md",
+    "audio_filename": "2026-06-14-dove.mp3",
+    "skills_xp": {
+      "Growth Hacking": 15,
+      "Crisis Management": 18,
+      "Branding": 0,
+      "Product Fit": 0
+    }
   }
 ]

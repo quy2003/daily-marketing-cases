@@ -39,6 +39,8 @@ graph TD
     TikTok --> UserEngagement["User Engagement"]
     DailyCases --> Pepsi["Pepsi"]
     Pepsi --> General["General"]
+    DailyCases --> Dove["Dove"]
+    Dove --> MarketingnhHngMcch["Marketing Định Hướng Mục Đích"]
 ```
 
 ---
@@ -47,6 +49,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #8 | 2026-06-14 | **Dove** | 🔵 Quá khứ | `Marketing Định Hướng Mục Đích & Sức Mạnh của Thông Điệp Chân Thật` | [Xem chi tiết](cases/markdown/2026-06-14-dove.md) |
 | #7 | 2026-06-13 | **Pepsi** | 🔵 Quá khứ | `General` | [Xem chi tiết](cases/markdown/2026-06-13-pepsi.md) |
 | #6 | 2026-06-12 | **TikTok** | 🔴 Hiện tại | `User Engagement & Platform Diversification` | [Xem chi tiết](cases/markdown/2026-06-12-tiktok.md) |
 | #5 | 2026-06-11 | **Volkswagen** | 🔵 Quá khứ | `Contrarian Marketing & Authentic Positioning` | [Xem chi tiết](cases/markdown/2026-06-11-volkswagen.md) |
