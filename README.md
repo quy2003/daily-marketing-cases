@@ -41,6 +41,8 @@ graph TD
     Pepsi --> General["General"]
     DailyCases --> Dove["Dove"]
     Dove --> MarketingnhHngMcch["Marketing Định Hướng Mục Đích"]
+    DailyCases --> Shein["Shein"]
+    Shein --> QuntrDanhtingThnghiuvPhttrinBnvng["Quản trị Danh tiếng Thương hiệu và Phát triển Bền vững"]
 ```
 
 ---
@@ -49,6 +51,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #9 | 2026-06-15 | **Shein** | 🔴 Hiện tại | `Quản trị Danh tiếng Thương hiệu và Phát triển Bền vững` | [Xem chi tiết](cases/markdown/2026-06-15-shein.md) |
 | #8 | 2026-06-14 | **Dove** | 🔵 Quá khứ | `Marketing Định Hướng Mục Đích & Sức Mạnh của Thông Điệp Chân Thật` | [Xem chi tiết](cases/markdown/2026-06-14-dove.md) |
 | #7 | 2026-06-13 | **Pepsi** | 🔵 Quá khứ | `General` | [Xem chi tiết](cases/markdown/2026-06-13-pepsi.md) |
 | #6 | 2026-06-12 | **TikTok** | 🔴 Hiện tại | `User Engagement & Platform Diversification` | [Xem chi tiết](cases/markdown/2026-06-12-tiktok.md) |
