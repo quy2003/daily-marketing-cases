@@ -151,5 +151,22 @@
       "Branding": 0,
       "Growth Hacking": 0
     }
+  },
+  {
+    "case_number": 10,
+    "brand": "De Beers",
+    "title": "De Beers 1947: Khi tình yêu được định giá bằng kim cương",
+    "theme": "Định vị giá trị và Xây dựng biểu tượng văn hóa",
+    "type": "Past",
+    "date": "2026-06-16",
+    "one_minute_takeaway": "De Beers đã biến một mặt hàng xa xỉ thành biểu tượng văn hóa không thể thiếu của tình yêu và hôn nhân bằng chiến dịch 'A Diamond is Forever'. Họ không chỉ bán kim cương mà còn bán một ước mơ, một cam kết vĩnh cửu, định hình lại văn hóa cầu hôn toàn cầu.",
+    "markdown_filename": "2026-06-16-de-beers.md",
+    "audio_filename": "2026-06-16-de-beers.mp3",
+    "skills_xp": {
+      "Product Fit": 22,
+      "Crisis Management": 16,
+      "Branding": 0,
+      "Growth Hacking": 0
+    }
   }
 ]
