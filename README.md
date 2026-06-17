@@ -25,8 +25,6 @@ Dưới đây là sơ đồ liên kết các case study đã học (tự động
 ```mermaid
 graph TD
     Start[Bắt đầu hành trình học tập] --> DailyCases[Danh sách Case Study]
-    DailyCases --> Apple["Apple"]
-    Apple --> BrandRebirthEmotionalBrandingValueBasedMarketingCommunityBuilding["Brand Rebirth, Emotional Branding, Value-Based Marketing, Community Building"]
     DailyCases --> Nike["Nike"]
     Nike --> EmotionalBrandingMarketRepositioning["Emotional Branding, Market Re-positioning"]
     DailyCases --> Netflix["Netflix"]
@@ -45,6 +43,8 @@ graph TD
     Shein --> QuntrDanhtingThnghiuvPhttrinBnvng["Quản trị Danh tiếng Thương hiệu và Phát triển Bền vững"]
     DailyCases --> DeBeers["De Beers"]
     DeBeers --> nhvgitrvXydngbiutngvnha["Định vị giá trị và Xây dựng biểu tượng văn hóa"]
+    DailyCases --> Marlboro["Marlboro"]
+    Marlboro --> TinhvthnghiuXydngbiutngvnhaBrandingcmxcvNamtnhtrongqungco["Tái định vị thương hiệu, Xây dựng biểu tượng văn hóa, Branding cảm xúc và Nam tính trong quảng cáo"]
 ```
 
 ---
@@ -53,6 +53,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #11 | 2026-06-17 | **Marlboro** | 🔵 Quá khứ | `Tái định vị thương hiệu, Xây dựng biểu tượng văn hóa, Branding cảm xúc và Nam tính trong quảng cáo` | [Xem chi tiết](cases/markdown/2026-06-17-marlboro.md) |
 | #10 | 2026-06-16 | **De Beers** | 🔵 Quá khứ | `Định vị giá trị và Xây dựng biểu tượng văn hóa` | [Xem chi tiết](cases/markdown/2026-06-16-de-beers.md) |
 | #9 | 2026-06-15 | **Shein** | 🔴 Hiện tại | `Quản trị Danh tiếng Thương hiệu và Phát triển Bền vững` | [Xem chi tiết](cases/markdown/2026-06-15-shein.md) |
 | #8 | 2026-06-14 | **Dove** | 🔵 Quá khứ | `Marketing Định Hướng Mục Đích & Sức Mạnh của Thông Điệp Chân Thật` | [Xem chi tiết](cases/markdown/2026-06-14-dove.md) |
