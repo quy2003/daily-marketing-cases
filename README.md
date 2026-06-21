@@ -25,8 +25,6 @@ Dưới đây là sơ đồ liên kết các case study đã học (tự động
 ```mermaid
 graph TD
     Start[Bắt đầu hành trình học tập] --> DailyCases[Danh sách Case Study]
-    DailyCases --> Starbucks["Starbucks"]
-    Starbucks --> MarketingTriNghim["Marketing Trải Nghiệm"]
     DailyCases --> Volkswagen["Volkswagen"]
     Volkswagen --> ContrarianMarketing["Contrarian Marketing"]
     DailyCases --> TikTok["TikTok"]
@@ -45,6 +43,8 @@ graph TD
     Shopee --> EcommerceReimaginedEngagement["E-commerce Reimagined: Engagement"]
     DailyCases --> CocaCola["Coca-Cola"]
     CocaCola --> GlobalUnity["Global Unity"]
+    DailyCases --> AbsolutVodka["Absolut Vodka"]
+    AbsolutVodka --> BrandIconography["Brand Iconography"]
 ```
 
 ---
@@ -53,6 +53,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #14 | 2026-06-21 | **Absolut Vodka** | 🔵 Quá khứ | `Brand Iconography & Consistent Creative Advertising` | [Xem chi tiết](cases/markdown/2026-06-21-absolut-vodka.md) |
 | #13 | 2026-06-19 | **Coca-Cola** | 🔵 Quá khứ | `Global Unity & Emotional Branding` | [Xem chi tiết](cases/markdown/2026-06-19-coca-cola.md) |
 | #12 | 2026-06-18 | **Shopee** | 🔴 Hiện tại | `E-commerce Reimagined: Engagement & Loyalty in the Short-Form Video Era` | [Xem chi tiết](cases/markdown/2026-06-18-shopee.md) |
 | #11 | 2026-06-17 | **Marlboro** | 🔵 Quá khứ | `Tái định vị thương hiệu, Xây dựng biểu tượng văn hóa, Branding cảm xúc và Nam tính trong quảng cáo` | [Xem chi tiết](cases/markdown/2026-06-17-marlboro.md) |
