@@ -25,8 +25,6 @@ Dưới đây là sơ đồ liên kết các case study đã học (tự động
 ```mermaid
 graph TD
     Start[Bắt đầu hành trình học tập] --> DailyCases[Danh sách Case Study]
-    DailyCases --> Pepsi["Pepsi"]
-    Pepsi --> General["General"]
     DailyCases --> Dove["Dove"]
     Dove --> MarketingnhHngMcch["Marketing Định Hướng Mục Đích"]
     DailyCases --> Shein["Shein"]
@@ -45,6 +43,8 @@ graph TD
     Zara --> SustainableFastFashion["Sustainable Fast Fashion"]
     DailyCases --> OldSpice["Old Spice"]
     OldSpice --> BrandRejuvenation["Brand Rejuvenation"]
+    DailyCases --> McDonalds["McDonald's"]
+    McDonalds --> BrandRevitalization["Brand Revitalization"]
 ```
 
 ---
@@ -53,6 +53,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #17 | 2026-06-24 | **McDonald's** | 🔵 Quá khứ | `Brand Revitalization & Global Consistency` | [Xem chi tiết](cases/markdown/2026-06-24-mcdonald's.md) |
 | #16 | 2026-06-23 | **Old Spice** | 🔵 Quá khứ | `Brand Rejuvenation & Viral Marketing` | [Xem chi tiết](cases/markdown/2026-06-23-old-spice.md) |
 | #15 | 2026-06-22 | **Zara** | 🔴 Hiện tại | `Sustainable Fast Fashion & Hyper-Personalization` | [Xem chi tiết](cases/markdown/2026-06-22-zara.md) |
 | #14 | 2026-06-21 | **Absolut Vodka** | 🔵 Quá khứ | `Brand Iconography & Consistent Creative Advertising` | [Xem chi tiết](cases/markdown/2026-06-21-absolut-vodka.md) |
