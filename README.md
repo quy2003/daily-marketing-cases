@@ -25,8 +25,6 @@ Dưới đây là sơ đồ liên kết các case study đã học (tự động
 ```mermaid
 graph TD
     Start[Bắt đầu hành trình học tập] --> DailyCases[Danh sách Case Study]
-    DailyCases --> Dove["Dove"]
-    Dove --> MarketingnhHngMcch["Marketing Định Hướng Mục Đích"]
     DailyCases --> Shein["Shein"]
     Shein --> QuntrDanhtingThnghiuvPhttrinBnvng["Quản trị Danh tiếng Thương hiệu và Phát triển Bền vững"]
     DailyCases --> DeBeers["De Beers"]
@@ -45,6 +43,8 @@ graph TD
     OldSpice --> BrandRejuvenation["Brand Rejuvenation"]
     DailyCases --> McDonalds["McDonald's"]
     McDonalds --> BrandRevitalization["Brand Revitalization"]
+    DailyCases --> Meta["Meta"]
+    Meta --> ChinlcTiKtNiGenZ["Chiến lược Tái Kết Nối Gen Z"]
 ```
 
 ---
@@ -53,6 +53,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #18 | 2026-06-25 | **Meta** | 🔴 Hiện tại | `Chiến lược Tái Kết Nối Gen Z & Tối Ưu Nền tảng Video Ngắn` | [Xem chi tiết](cases/markdown/2026-06-25-meta.md) |
 | #17 | 2026-06-24 | **McDonald's** | 🔵 Quá khứ | `Brand Revitalization & Global Consistency` | [Xem chi tiết](cases/markdown/2026-06-24-mcdonald's.md) |
 | #16 | 2026-06-23 | **Old Spice** | 🔵 Quá khứ | `Brand Rejuvenation & Viral Marketing` | [Xem chi tiết](cases/markdown/2026-06-23-old-spice.md) |
 | #15 | 2026-06-22 | **Zara** | 🔴 Hiện tại | `Sustainable Fast Fashion & Hyper-Personalization` | [Xem chi tiết](cases/markdown/2026-06-22-zara.md) |

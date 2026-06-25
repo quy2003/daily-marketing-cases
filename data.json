@@ -287,5 +287,22 @@
       "Branding": 0,
       "Crisis Management": 0
     }
+  },
+  {
+    "case_number": 18,
+    "brand": "Meta",
+    "title": "Meta: Giành lại Gen Z và Vị thế Video Ngắn với AI",
+    "theme": "Chiến lược Tái Kết Nối Gen Z & Tối Ưu Nền tảng Video Ngắn",
+    "type": "Present",
+    "date": "2026-06-25",
+    "one_minute_takeaway": "Meta cần chuyển mình mạnh mẽ, tập trung vào trải nghiệm chân thực, cá nhân hóa sâu sắc và tính tương tác cao để thu hút Gen Z. Tối ưu hóa Reels với các công cụ AI tạo sinh đột phá và chiến lược nội dung sáng tạo sẽ là chìa khóa để giành lại vị thế dẫn đầu trong kỷ nguyên video ngắn và cạnh tranh với TikTok.",
+    "markdown_filename": "2026-06-25-meta.md",
+    "audio_filename": "2026-06-25-meta.mp3",
+    "skills_xp": {
+      "Branding": 18,
+      "Crisis Management": 11,
+      "Growth Hacking": 0,
+      "Product Fit": 0
+    }
   }
 ]
