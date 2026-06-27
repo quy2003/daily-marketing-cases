@@ -25,8 +25,6 @@ Dưới đây là sơ đồ liên kết các case study đã học (tự động
 ```mermaid
 graph TD
     Start[Bắt đầu hành trình học tập] --> DailyCases[Danh sách Case Study]
-    DailyCases --> DeBeers["De Beers"]
-    DeBeers --> nhvgitrvXydngbiutngvnha["Định vị giá trị và Xây dựng biểu tượng văn hóa"]
     DailyCases --> Marlboro["Marlboro"]
     Marlboro --> TinhvthnghiuXydngbiutngvnhaBrandingcmxcvNamtnhtrongqungco["Tái định vị thương hiệu, Xây dựng biểu tượng văn hóa, Branding cảm xúc và Nam tính trong quảng cáo"]
     DailyCases --> Shopee["Shopee"]
@@ -45,6 +43,8 @@ graph TD
     Meta --> ChinlcTiKtNiGenZ["Chiến lược Tái Kết Nối Gen Z"]
     DailyCases --> IKEA["IKEA"]
     IKEA --> BnahavThchnghivnha["Bản địa hóa và Thích nghi văn hóa"]
+    DailyCases --> Avis["Avis"]
+    Avis --> CompetitivePositioning["Competitive Positioning"]
 ```
 
 ---
@@ -53,6 +53,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #20 | 2026-06-27 | **Avis** | 🔵 Quá khứ | `Competitive Positioning & Underdog Branding` | [Xem chi tiết](cases/markdown/2026-06-27-avis.md) |
 | #19 | 2026-06-26 | **IKEA** | 🔵 Quá khứ | `Bản địa hóa và Thích nghi văn hóa` | [Xem chi tiết](cases/markdown/2026-06-26-ikea.md) |
 | #18 | 2026-06-25 | **Meta** | 🔴 Hiện tại | `Chiến lược Tái Kết Nối Gen Z & Tối Ưu Nền tảng Video Ngắn` | [Xem chi tiết](cases/markdown/2026-06-25-meta.md) |
 | #17 | 2026-06-24 | **McDonald's** | 🔵 Quá khứ | `Brand Revitalization & Global Consistency` | [Xem chi tiết](cases/markdown/2026-06-24-mcdonald's.md) |

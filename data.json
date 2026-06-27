@@ -321,5 +321,22 @@
       "Crisis Management": 0,
       "Product Fit": 0
     }
+  },
+  {
+    "case_number": 20,
+    "brand": "Avis",
+    "title": "Avis 1962: Biến bất lợi thành lợi thế với 'We Try Harder'",
+    "theme": "Competitive Positioning & Underdog Branding",
+    "type": "Past",
+    "date": "2026-06-27",
+    "one_minute_takeaway": "Avis, đối mặt với vị trí thứ hai sau Hertz, đã biến điểm yếu thành lợi thế cạnh tranh với slogan 'We Try Harder'. Chiến dịch này không chỉ tạo ra một thông điệp chân thực mà còn định hình lại cách các thương hiệu cấp dưới có thể cạnh tranh với người dẫn đầu thị trường.",
+    "markdown_filename": "2026-06-27-avis.md",
+    "audio_filename": "2026-06-27-avis.mp3",
+    "skills_xp": {
+      "Product Fit": 23,
+      "Crisis Management": 3,
+      "Branding": 0,
+      "Growth Hacking": 0
+    }
   }
 ]
