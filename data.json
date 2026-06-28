@@ -338,5 +338,22 @@
       "Branding": 0,
       "Growth Hacking": 0
     }
+  },
+  {
+    "case_number": 21,
+    "brand": "Spotify",
+    "title": "Spotify 2026: Vượt qua 'Thế hệ nghe nhìn' bằng trải nghiệm cá nhân hóa AI",
+    "theme": "Cá nhân hóa siêu cấp & Nền kinh tế người sáng tạo nội dung trong kỷ nguyên Gen Alpha",
+    "type": "Present",
+    "date": "2026-06-28",
+    "one_minute_takeaway": "Spotify đứng trước thách thức lớn từ xu hướng 'thế hệ nghe nhìn' và sự bùng nổ của nội dung video ngắn. Để duy trì vị thế dẫn đầu, Spotify cần tái định vị mình không chỉ là nền tảng âm nhạc mà còn là điểm đến giải trí âm thanh cá nhân hóa toàn diện, khai thác sức mạnh của AI và trao quyền cho người sáng tạo nội dung đa dạng hơn.",
+    "markdown_filename": "2026-06-28-spotify.md",
+    "audio_filename": "2026-06-28-spotify.mp3",
+    "skills_xp": {
+      "Growth Hacking": 15,
+      "Branding": 20,
+      "Crisis Management": 0,
+      "Product Fit": 0
+    }
   }
 ]

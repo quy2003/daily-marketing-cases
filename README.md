@@ -25,8 +25,6 @@ Dưới đây là sơ đồ liên kết các case study đã học (tự động
 ```mermaid
 graph TD
     Start[Bắt đầu hành trình học tập] --> DailyCases[Danh sách Case Study]
-    DailyCases --> Marlboro["Marlboro"]
-    Marlboro --> TinhvthnghiuXydngbiutngvnhaBrandingcmxcvNamtnhtrongqungco["Tái định vị thương hiệu, Xây dựng biểu tượng văn hóa, Branding cảm xúc và Nam tính trong quảng cáo"]
     DailyCases --> Shopee["Shopee"]
     Shopee --> EcommerceReimaginedEngagement["E-commerce Reimagined: Engagement"]
     DailyCases --> CocaCola["Coca-Cola"]
@@ -45,6 +43,8 @@ graph TD
     IKEA --> BnahavThchnghivnha["Bản địa hóa và Thích nghi văn hóa"]
     DailyCases --> Avis["Avis"]
     Avis --> CompetitivePositioning["Competitive Positioning"]
+    DailyCases --> Spotify["Spotify"]
+    Spotify --> Cnhnhasiucp["Cá nhân hóa siêu cấp"]
 ```
 
 ---
@@ -53,6 +53,7 @@ graph TD
 
 | Số | Ngày học | Thương hiệu | Phân loại | Chủ đề cốt lõi | Chi tiết |
 | :--- | :--- | :--- | :--- | :--- | :--- |
+| #21 | 2026-06-28 | **Spotify** | 🔴 Hiện tại | `Cá nhân hóa siêu cấp & Nền kinh tế người sáng tạo nội dung trong kỷ nguyên Gen Alpha` | [Xem chi tiết](cases/markdown/2026-06-28-spotify.md) |
 | #20 | 2026-06-27 | **Avis** | 🔵 Quá khứ | `Competitive Positioning & Underdog Branding` | [Xem chi tiết](cases/markdown/2026-06-27-avis.md) |
 | #19 | 2026-06-26 | **IKEA** | 🔵 Quá khứ | `Bản địa hóa và Thích nghi văn hóa` | [Xem chi tiết](cases/markdown/2026-06-26-ikea.md) |
 | #18 | 2026-06-25 | **Meta** | 🔴 Hiện tại | `Chiến lược Tái Kết Nối Gen Z & Tối Ưu Nền tảng Video Ngắn` | [Xem chi tiết](cases/markdown/2026-06-25-meta.md) |
